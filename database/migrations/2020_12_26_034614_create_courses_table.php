@@ -15,6 +15,10 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('Nombre_Curso', 60);
+            $table->text('Description');
+            $table->string('Duration', 50)->nullable();
+            $table->integer('Questions_Qty')->unsigned()->default(1);
             $table->timestamps();
         });
     }

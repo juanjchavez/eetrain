@@ -15,7 +15,13 @@ class CreateCoursesPerUsersTable extends Migration
     {
         Schema::create('courses_per_users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('Cod_User');
+            $table->unsignedBigInteger('Cod_Course');
+            $table->BigInteger('Cod_Lesson');
+            $table->float('Score')->nullable();
             $table->timestamps();
+            $table->foreign('Cod_User')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('Cod_Course')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 

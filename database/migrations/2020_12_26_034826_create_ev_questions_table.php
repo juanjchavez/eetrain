@@ -15,6 +15,10 @@ class CreateEvQuestionsTable extends Migration
     {
         Schema::create('ev_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('Cod_Curso');
+            $table->string('Question', 120);
+            $table->integer('Answer')->unsigned();
+            $table->foreign('Cod_Curso')->references('id')->on('courses')->onDelete('cascade');
             $table->timestamps();
         });
     }
