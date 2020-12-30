@@ -18,7 +18,7 @@ class CreateAssignmentsTable extends Migration
             $table->unsignedBigInteger('Cod_User');
             $table->unsignedBigInteger('Cod_Lesson');
             $table->string('Url', 255);
-            $table->float('Score');
+            $table->float('Score')->nullable();
             $table->timestamps();
             $table->foreign('Cod_User')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('Cod_Lesson')->references('id')->on('lessons')->onDelete('cascade');
