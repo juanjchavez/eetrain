@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Roles;
+use App\User;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -14,7 +15,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles=Roles::all();
+        $roles=Roles::with('Users')->get();
         return view('Roles.index',compact('roles'));
     }
 

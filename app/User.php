@@ -36,4 +36,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table='users';
+
+    public function Role()
+    {
+        return $this->belongsTo('App\Roles', 'Cod_Role');
+    }
+
+    public function Lessons()
+    {
+        return $this->hasMany('App\Lessons', 'Cod_User');
+    }
+
+    public function Conversations()
+    {
+        return $this->hasMany('App\Conversations', 'Cod_User');
+    }
+
+    public function Assignments()
+    {
+        return $this->hasMany('App\Assignment', 'Cod_User');
+    }
+
+    public function Courses()
+    {
+        return $this->belongsToMany('App\Courses', 'courses_per_users', 'Cod_User', 'Cod_Course');
+    }
+
 }

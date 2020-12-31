@@ -20,7 +20,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="col-sm-8">Nombre</th>
+                                <th class="col-sm-6">Nombre</th>
+                                <th class="col-sm-2">Usuarios</th>
                                 <th class="col-sm-4 justify-content-center">Opciones</th>
                             </tr>
                         </thead>
@@ -28,6 +29,7 @@
                             @foreach($roles as $role)
                                 <tr>
                                     <td>{{ $role->Role_Name }}</td>
+                                    <td>{{ count($role->users) }}</td>
                                     <td>
                                         <button class="btn btn-sm btn-primary col-sm-3">Ver</button>
                                         <button class="btn btn-sm btn-secondary col-sm-3">Editar</button>
@@ -36,6 +38,7 @@
                                     <td></td>
                                 </tr>
                             @endforeach
+                            
                         </tbody>
                     </table>
                 </div>
